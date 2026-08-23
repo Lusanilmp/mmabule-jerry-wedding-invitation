@@ -2,11 +2,11 @@
    WEDDING CONFIGURATION
    Update these values before deploying.
 ========================================= */
-const RSVP_WHATSAPP_NUMBER = "27764982548"; // e.g. "27821234567" — country code, no + or leading 0
-const DAY_ONE_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("-23.894827,29.723726");
-const DAY_TWO_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("-24.672089,29.907375");
-const INVITATION_URL = "https://mj-wedding-invitation.netlify.app/";
-const SOCIAL_IMAGE_URL = "https://mj-wedding-invitation.netlify.app/images/couple-4.jpg";
+const RSVP_WHATSAPP_NUMBER = "YOUR_WHATSAPP_NUMBER"; // e.g. "27821234567" — country code, no + or leading 0
+const DAY_ONE_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Turf Lodge, 792 Unit E, Mankweng, Pieter Mokaba");
+const DAY_TWO_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("10476 Segogela Street, Janefurse, Marulaneng");
+const INVITATION_URL = "YOUR_FINAL_DEPLOYED_URL";
+const SOCIAL_IMAGE_URL = "YOUR_FINAL_PUBLIC_COUPLE_IMAGE_URL";
 
 /* ========================================= */
 
@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initReveals();
   initHero();
+  initHeroSlideshow();
   initMusic();
   initMaps();
   initRSVP();
@@ -86,6 +87,22 @@ function revealHero() {
   requestAnimationFrame(() => {
     hero.classList.add("revealed");
   });
+}
+
+/* ---------- Hero cinematic slideshow ---------- */
+function initHeroSlideshow() {
+  const slides = document.querySelectorAll(".hero-slide");
+  if (slides.length <= 1) return;
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return; // keep the first image static, no cycling
+
+  let index = 0;
+  setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 5000);
 }
 
 /* ---------- Scroll reveals ---------- */
@@ -186,17 +203,19 @@ function initMaps() {
 
 /* ---------- RSVP ---------- */
 function initRSVP() {
-  const btn = document.getElementById("rsvp-whatsapp-btn");
+  const links = document.querySelectorAll(".rsvp-whatsapp-link");
   const message =
     "Hello, thank you for the invitation. I would like to RSVP for the wedding of Mmabule Shayi and Jerry Segogela.";
 
   if (RSVP_WHATSAPP_NUMBER && RSVP_WHATSAPP_NUMBER !== "YOUR_WHATSAPP_NUMBER") {
     const whatsappURL = `https://wa.me/${RSVP_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    btn.href = whatsappURL;
+    links.forEach((btn) => { btn.href = whatsappURL; });
   } else {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      alert("RSVP number has not been configured yet. Please update RSVP_WHATSAPP_NUMBER in script.js.");
+    links.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("RSVP number has not been configured yet. Please update RSVP_WHATSAPP_NUMBER in script.js.");
+      });
     });
   }
 }

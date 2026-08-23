@@ -125,6 +125,14 @@ img { max-width: 100%; display: block; }
 }
 .btn-ghost-light:hover { background: var(--champagne); color: var(--dark-teal); border-color: var(--champagne); }
 
+.btn-compact {
+  min-height: 40px;
+  padding: 9px 22px;
+  font-size: 0.7rem;
+  gap: 8px;
+}
+.btn-compact svg { width: 14px; height: 14px; }
+
 /* ============ ENVELOPE ============ */
 
 #envelope-screen {
@@ -405,17 +413,29 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
-.hero-media img {
+.hero-slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 50% 22%;
+  opacity: 0;
   transform: scale(1.08);
-  transition: transform 5s var(--ease-cinematic);
   filter: saturate(1.02);
+  transition: opacity 1.8s var(--ease-cinematic);
 }
 
-.hero.revealed .hero-media img { transform: scale(1); }
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+  animation: heroKenBurns 9s var(--ease-cinematic) forwards;
+}
+
+@keyframes heroKenBurns {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
 
 .hero-media::after {
   content: "";
@@ -512,6 +532,38 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   color: var(--champagne);
 }
+
+/* ============ COMPACT RSVP (under scripture) ============ */
+
+.compact-rsvp-wrap {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.btn-rsvp-compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 22px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--deep-teal);
+  color: var(--deep-teal);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.35s var(--ease-cinematic), color 0.35s var(--ease-cinematic), transform 0.25s ease;
+}
+
+.btn-rsvp-compact svg { width: 14px; height: 14px; }
+
+.btn-rsvp-compact:hover { background: var(--deep-teal); color: var(--cream); }
+.btn-rsvp-compact:active { transform: scale(0.97); }
+.btn-rsvp-compact:focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; }
 
 /* ============ REVEAL UTILITY ============ */
 
@@ -644,10 +696,7 @@ img { max-width: 100%; display: block; }
   color: var(--dark-text);
 }
 
-.day-card .btn { margin-top: 26px; width: 100%;
-background-color:#174C4B;
-color: #FFFDF8;}
-
+.day-card .btn { margin-top: 26px; width: 100%; }
 
 /* ============ GALLERY ============ */
 
