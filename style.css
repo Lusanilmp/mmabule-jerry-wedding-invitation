@@ -700,6 +700,12 @@ img { max-width: 100%; display: block; }
 background-color:#0E3535;
 color:white; }
 
+.day-detail-label {
+    color: #0E3535;
+    font-size: 22px;
+    font-weight: 700;
+}
+
 /* ============ GALLERY ============ */
 
 .gallery-section { padding-top: clamp(60px, 10vw, 110px); }
