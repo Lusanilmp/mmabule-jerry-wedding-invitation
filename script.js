@@ -2,11 +2,11 @@
    WEDDING CONFIGURATION
    Update these values before deploying.
 ========================================= */
-const RSVP_WHATSAPP_NUMBER = "YOUR_WHATSAPP_NUMBER"; // e.g. "27821234567" — country code, no + or leading 0
+const RSVP_WHATSAPP_NUMBER = "27764982548"; // e.g. "27821234567" — country code, no + or leading 0
 const DAY_ONE_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Turf Lodge, 792 Unit E, Mankweng, Pieter Mokaba");
 const DAY_TWO_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("10476 Segogela Street, Janefurse, Marulaneng");
-const INVITATION_URL = "YOUR_FINAL_DEPLOYED_URL";
-const SOCIAL_IMAGE_URL = "YOUR_FINAL_PUBLIC_COUPLE_IMAGE_URL";
+const INVITATION_URL = "https://mj-wedding-invitation.netlify.app/";
+const SOCIAL_IMAGE_URL = "https://mj-wedding-invitation.netlify.app/images/couple-4.jpg";
 
 /* ========================================= */
 
