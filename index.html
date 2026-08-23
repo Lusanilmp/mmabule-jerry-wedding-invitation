@@ -124,7 +124,7 @@
 
         <div class="day-detail-row">
           <p class="day-detail-label">Venue</p>
-          <p class="day-detail-value">792 Unit E, Mankweng, Pieter Mokaba</p>
+          <p class="day-detail-value">792 Unit E, Mankweng, Peter Mokaba</p>
           <p class="day-detail-value">More Information +2779 799 1299
         </div>
         <div class="day-detail-row">
@@ -182,26 +182,92 @@
       <h2 class="reveal">Gallery</h2>
     </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item g-item-a"><img src="images/couple-1.jpg" alt="Mmabule and Jerry beneath a tree at golden hour" loading="lazy"></div>
-      <div class="gallery-item g-item-b"><img src="images/bride.jpg" alt="Mmabule in a flowing teal gown" loading="lazy"></div>
-      <div class="gallery-item g-item-c"><img src="images/groom.jpg" alt="Jerry in a sage green waistcoat" loading="lazy"></div>
-      <div class="gallery-item g-item-d"><img src="images/couple-4.jpg" alt="Jerry kneeling beside Mmabule on a stone bench" loading="lazy"></div>
-      <div class="gallery-item g-item-e"><img src="images/couple-2.jpg" alt="Mmabule and Jerry by the water's edge" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-3.jpg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-5.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-6.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-7.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-8.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-9.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-10.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-11.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-12.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-13.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-      <div class="gallery-item g-item-f"><img src="images/couple-14.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
-     
+    <div class="gallery-carousel">
+      <div class="gallery-track">
+        <div class="gallery-item"><img src="images/couple-1.jpg" alt="Mmabule and Jerry beneath a tree at golden hour" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/bride.jpg" alt="Mmabule in a flowing teal gown" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/groom.jpg" alt="Jerry in a sage green waistcoat" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-4.jpg" alt="Jerry kneeling beside Mmabule on a stone bench" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-2.jpg" alt="Mmabule and Jerry by the water's edge" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-3.jpg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-5.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-6.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-7.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-8.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-9.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-10.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-11.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-12.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-13.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/couple-14.jpeg" alt="Mmabule and Jerry sharing a quiet moment indoors" loading="lazy"></div>
+      </div>
     </div>
   </section>
+
+  <style>
+    .gallery-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .gallery-track {
+      display: flex;
+      width: max-content;
+      animation: gallery-scroll 55s linear infinite;
+    }
+
+    .gallery-carousel:hover .gallery-track {
+      animation-play-state: paused;
+    }
+
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 320px;
+      height: 420px;
+      margin: 0 12px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    @keyframes gallery-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item {
+        width: 220px;
+        height: 300px;
+        margin: 0 8px;
+      }
+    }
+  </style>
+
+  <script>
+    // Duplicate the track content once so the loop is seamless (infinite scroll illusion)
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.gallery-track');
+      if (track) {
+        track.innerHTML += track.innerHTML;
+      }
+    });
+  </script>
 
   <!-- ================= GUEST POLICY ================= -->
   <section class="section policy-section reveal" style="margin: 0 auto;">
