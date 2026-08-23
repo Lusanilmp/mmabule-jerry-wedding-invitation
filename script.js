@@ -3,10 +3,10 @@
    Update these values before deploying.
 ========================================= */
 const RSVP_WHATSAPP_NUMBER = "27764982548"; // e.g. "27821234567" — country code, no + or leading 0
-const DAY_ONE_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Turf Lodge, 792 Unit E, Mankweng, Pieter Mokaba");
-const DAY_TWO_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("10476 Segogela Street, Janefurse, Marulaneng");
+const DAY_ONE_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("-23.894827,29.723726");
+const DAY_TWO_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("-24.672089,29.907375");
 const INVITATION_URL = "https://mj-wedding-invitation.netlify.app";
-const SOCIAL_IMAGE_URL = "https://mj-wedding-invitation.netlify.app/images/hero.jpg";
+const SOCIAL_IMAGE_URL = "https://mj-wedding-invitation.netlify.app/images/couple-4.jpg";
 
 /* ========================================= */
 
