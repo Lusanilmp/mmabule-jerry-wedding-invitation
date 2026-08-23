@@ -644,7 +644,10 @@ img { max-width: 100%; display: block; }
   color: var(--dark-text);
 }
 
-.day-card .btn { margin-top: 26px; width: 100%; }
+.day-card .btn { margin-top: 26px; width: 100%;
+background-color:#174C4B;
+color: #FFFDF8;}
+
 
 /* ============ GALLERY ============ */
 
